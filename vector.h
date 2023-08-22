@@ -5,12 +5,15 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define vec_def(type)           \
+#define vec_gen(type)           \
     typedef struct vec_##type { \
         type* data;             \
         size_t capacity;        \
         size_t len;             \
     } vec_##type;               \
+
+#define vec_dec(type)                     \ 
+    typedef struct vec_##type vec_##type; \
 
 #define vec_new(size, type) ({                                  \
     size_t _size = (size);                                      \
@@ -65,6 +68,11 @@
         vec.data[i] = vec.data[i+1];                                       \
     }                                                                      \
     vec.len--;                                                             \
+})
+
+#define vec_destroy(vec) ({ \
+    free(vec.data);         \
+    vec.data = NULL;        \
 })
 
 #endif

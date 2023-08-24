@@ -1,1 +1,5 @@
 .vscode
+.build
+./vec.out
+./test.out
+./test.c

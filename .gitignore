@@ -1,5 +1,4 @@
 .vscode
-.build
-./vec.out
-./test.out
-./test.c
+build
+*.out
+test.c

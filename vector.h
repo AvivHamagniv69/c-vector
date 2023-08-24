@@ -28,7 +28,7 @@
     size_t _size = (size); \
     vec_##type vec; \
     vec.data = (type*) calloc(_size, sizeof(type)); \
-    if (assert(_size > 0)) { \
+    if (_size > 0) { \
         assert(vec.data != NULL); \
     } \
     vec.capacity = _size; \
